@@ -1,9 +1,0 @@
-\contentsline {section}{\numberline {1}绪论}{1}
-\contentsline {subsection}{\numberline {1.1}页面及页眉页脚}{1}
-\contentsline {subsubsection}{\numberline {1.1.1}字距、行距、页码}{1}
-\contentsline {section}{\numberline {2}示例}{2}
-\contentsline {section}{\numberline {3}结论与展望}{4}
-\contentsline {section}{参考文献}{7}
-\contentsline {section}{附录1 \hspace {0.15cm}}{8}
-\contentsline {section}{致谢}{9}
-\contentsfinish 

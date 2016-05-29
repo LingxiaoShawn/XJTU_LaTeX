@@ -7,11 +7,15 @@
 
  使用者请直接打开first.tex文件，编译运行前请仔细阅读文件开头的使用说明，务必
  根据自己的系统设置：
+
  Mac系统：\documentclass[Mac]{xjtuBSThesis}
+
  Linux系统：\documentclass[Linux]{xjtuBSThesis}
+
  Windows系统：\documentclass[Win]{xjtuBSThesis}
 
  如遇问题请联系：lingxia1@andrew.cmu.edu 
+ 
  (我知道这个邮箱名字很丑！妈的......)
 
  

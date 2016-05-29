@@ -446,6 +446,9 @@
 }{\par}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%定义数学公式想对大小%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{newtxmath}%math font package 
+%Another package named {unicode-math} is more power than{newtxmath}. If you need different math font, please see the document of {unicode-math} and learn by yourself. 
+
 \makeatletter
 \DeclareMathSizes{\xjtu@FontSize@eight}
                  {\xjtu@FontSize@eight}

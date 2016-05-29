@@ -1,0 +1,66 @@
+\begin{thebibliography}{1}
+\providecommand{\bibauthor}[1]{#1}
+\providecommand{\bibeditor}[1]{#1}
+\providecommand{\bibtranslator}[1]{#1}
+\providecommand{\bibtitle}[1]{#1}
+\providecommand{\bibbooktitle}[1]{#1}
+\providecommand{\bibjournal}[1]{#1}
+\providecommand{\bibmark}[1]{#1}
+\providecommand{\bibcountry}[1]{#1}
+\providecommand{\bibpatentid}[1]{#1}
+\providecommand{\bibedition}[1]{#1}
+\providecommand{\biborganization}[1]{#1}
+\providecommand{\bibaddress}[1]{#1}
+\providecommand{\bibpublisher}[1]{#1}
+\providecommand{\bibinstitution}[1]{#1}
+\providecommand{\bibschool}[1]{#1}
+\providecommand{\bibvolume}[1]{#1}
+\providecommand{\bibnumber}[1]{#1}
+\providecommand{\bibversion}[1]{#1}
+\providecommand{\bibpages}[1]{#1}
+\providecommand{\bibmodifydate}[1]{#1}
+\providecommand{\bibcitedate}[1]{#1}
+\providecommand{\bibyear}[1]{#1}
+\providecommand{\bibdate}[1]{#1}
+\providecommand{\biburl}[1]{\newline\url{#1}}
+
+\bibitem{newman2006structure}
+\bibauthor{NEWMAN M\@, BARAB{\'A}SI A-L\@, WATTS D~J}\@. \bibbooktitle{The
+  structure and dynamics of networks}\bibmark{[M]}\@.
+  \bibaddress{Princeton}\thinspace{}\textnormal{: }\bibpublisher{Princeton
+  University Press}\@, \bibyear{2006}\@.
+
+\bibitem{newman2001random}
+\bibauthor{NEWMAN M~E\@, STROGATZ S~H\@, WATTS D~J}\@. \bibtitle{Random graphs
+  with arbitrary degree distributions and their applications}\bibmark{[J]}\@.
+  \bibjournal{Physical Review E}\@, \bibyear{2001}\@,
+  \bibvolume{64}\bibnumber{(2)}\thinspace{}\textnormal{: }\bibpages{026118}\@.
+
+\bibitem{aiello2000random}
+\bibauthor{AIELLO W\@, CHUNG F\@, LU L}\@. \bibtitle{A random graph model for
+  massive graphs}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of the
+  thirty-second annual ACM symposium on Theory of computing}\@. \bibaddress{New
+  York}\thinspace{}\textnormal{: }\bibpublisher{ACM}\@,
+  \bibyear{2000}\thinspace{}\textnormal{:
+  }\bibpages{171\thinspace{}\textnormal{--}\thinspace{}180}\@.
+
+\bibitem{bollobas2001random}
+\bibauthor{BOLLOB{\'A}S B}\@. \bibbooktitle{Random
+  graphs\thinspace{}\textnormal{: }Vol~73}\bibmark{[M]}\@.
+  \bibaddress{[S.l.]}\thinspace{}\textnormal{: }\bibpublisher{Cambridge
+  university press}\@, \bibyear{2001}\@.
+
+\bibitem{barabasi1999emergence}
+\bibauthor{BARAB{\'A}SI A-L\@, ALBERT R}\@. \bibtitle{Emergence of scaling in
+  random networks}\bibmark{[J]}\@. \bibjournal{science}\@, \bibyear{1999}\@,
+  \bibvolume{286}\bibnumber{(5439)}\thinspace{}\textnormal{:
+  }\bibpages{509\thinspace{}\textnormal{--}\thinspace{}512}\@.
+
+\bibitem{erdHos1961strength}
+\bibauthor{ERD{\H{O}}S P\@, RENYI A}\@. \bibtitle{On the strength of
+  connectedness of a random graph}\bibmark{[J]}\@. \bibjournal{Acta Mathematica
+  Hungarica}\@, \bibyear{1961}\@,
+  \bibvolume{12}\bibnumber{(1)}\thinspace{}\textnormal{:
+  }\bibpages{261\thinspace{}\textnormal{--}\thinspace{}267}\@.
+
+\end{thebibliography}

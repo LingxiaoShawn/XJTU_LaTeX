@@ -1,7 +1,7 @@
 %% Copyright (C) 2016, Lingxiao Zhao.
 %% Department of Electrical Engineering, Xi'an Jiaotong University.
 %% Email: lingxia1@andrew.cmu.edu
-%%
+%% Version 1.1 
 %% Make some change depending on the requirement of XJTU.
 %%	
 %%Thanks to Hu Xinghai http://haixing-hu.github.io/nju-thesis/

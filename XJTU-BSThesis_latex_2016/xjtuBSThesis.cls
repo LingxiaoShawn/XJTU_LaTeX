@@ -4,8 +4,8 @@
 %% Copyright (C) 2016, Lingxiao Zhao. 赵令霄
 %% Department of Electrical Engineering, Xi'an Jiaotong University.
 %% Email: lingxia1@andrew.cmu.edu
-%%
-%%
+%% Version 1.1 
+%% Made a huge improvement accoding to the word template provided by XJTU!!!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Reference: 
 % 1.  NJU Latex Model from Chuheng Zhang

@@ -1,11 +1,10 @@
+%% Copyright (C) 2016, Lingxiao Zhao.
+%% Department of Electrical Engineering, Xi'an Jiaotong University.
+%% Email: lingxia1@andrew.cmu.edu
 %%
-%% Copyright (C) 2016, Zhang Chuheng.
-%% Department of Physics, Nanjing University.
-%% 
-%% Home Page: http://sealzhang.tk
-%% 
-%%	Thanks to Hu Xinghai http://haixing-hu.github.io/nju-thesis/
-%%
+%% Make some change depending on the requirement of XJTU.
+%%	
+%%Thanks to Hu Xinghai http://haixing-hu.github.io/nju-thesis/
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -62,7 +61,7 @@ ENTRY                                             % class Entry {
   series                                          %   String series;
   volume                                          %   String volume;
   number                                          %   String number;
-  version 										  %	  String version;
+  version 										                    %	  String version;
   month                                           %   String month;
   school                                          %   String school;
   institution                                     %   String institution;
@@ -613,6 +612,7 @@ FUNCTION {format.bibinfo} {                       % String Entry::format_bibinfo
 }                                                 % }
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 INTEGERS { nameindex namecount }                  % static int nameindex, namecount;
 STRINGS  { namelist nameformat }                  % static String namelist, nameformat;
 STRINGS  { firstname lastname jrname vonname}     % static String firstname, lastname, jrname, vonname;
@@ -627,17 +627,20 @@ FUNCTION {format.names} {                         % String Entry::format_names(S
     nameindex #1 > {                              %     if (nameindex > 1) {
       cap.comma *                                 %       result = result + cap_comma;
     } 'skip$ if$                                  %     }
-    namelist nameindex "{vv}" format.name$        %     String tmp = format_name(namelist, nameindex, "{vv}");
+    namelist nameindex "{vv~}" format.name$       %     String tmp = format_name(namelist, nameindex, "{vv}");
    'vonname :=                                    %     vonname = tmp;
     namelist nameindex "{jj}" format.name$        %     tmp = format_name(namelist, nameindex, "{jj}");
-    remove.dots 'jrname :=                        %     jrname = remove_dots(tmp);
-    namelist nameindex "{f}" format.name$         %     tmp = format_name(namelist, nameindex, "{f}");
+    remove.dots 
+    'jrname :=                        %     jrname = remove_dots(tmp);
+    namelist nameindex "{ f{}}" format.name$       %     tmp = format_name(namelist, nameindex, "{f}");
     remove.dots                                   %     tmp = remove_dots(tmp);
-    "u" change.case$ 'firstname :=                %     firstname = change_case(tmp, "u");
+      'firstname :=                                           
+    %"u" change.case$ 'firstname :=               %     firstname = change_case(tmp, "u");
     namelist nameindex "{ll}" format.name$        %     tmp = format_name(namelist, nameindex, "{ll}");
-    "u" change.case$ 'lastname :=                 %     lastname = change_case(tmp, "u");
-    jrname empty$ not {                           %     if (! empty(jrname)) {
-      jrname * " " *                              %       result = result + jrname + " "
+      'lastname :=  
+    %"u" change.case$ 'lastname :=                %     lastname = change_case(tmp, "u");
+    firstname empty$ not {                        %     if (! empty(firstname)) {
+      firstname * " " *                             %       result = result + firstname 
     } 'skip$ if$                                  %     }
     vonname empty$ not {                          %     if (! empty(vonname)) {
       vonname * " " *                             %       result = result + vonname + " "
@@ -645,11 +648,16 @@ FUNCTION {format.names} {                         % String Entry::format_names(S
     lastname empty$ not {                         %     if (! empty(lastname)) {
       lastname * " " *                            %       result = result + lastname + " "
     } 'skip$ if$                                  %     }
-    firstname empty$ not {                        %     if (! empty(firstname)) {
-      firstname * " " *                           %       result = result + firstname + " "
+    jrname empty$ not {                           %     if (! empty(jrname)) {
+      jrname * " " *                              %       result = result + jrname + " "
     } 'skip$ if$                                  %     }
+   
+    
+   
     trim.end                                      %     result = trim_end(result);
   } while$                                        %   }
+ 
+
   nameindex namecount < {                         %   if (nameindex < namecount) {
     cap.et.al *                                   %     result = result + cap_et_al();
   } 'skip$ if$                                    %   }
@@ -681,7 +689,7 @@ FUNCTION {format.author} {                        % String Emtry::format_author(
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   %
-FUNCTION {format.editor} {                        % String Emtry::format_author(String editors) {
+FUNCTION {format.editor} {                        % String Emtry::format_editor(String editors) {
   is.in.chinese {                                 %   if (is_in_chinese) {
     format.names.zh                               %     editors = format_names_zh(editors);
   } {                                             %   } else {

@@ -551,14 +551,10 @@
 		\sectionmark{致谢}
 \addcontentsline{toc}{section}{致谢} % 使用\addcontentsline{toc}{chapter}{致谢}将致谢添加到目录中.
 }{\par}
-<<<<<<< HEAD
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%定义数学公式想对大小%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-=======
 
 \makeatother
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%定义数学公式想对大小%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
->>>>>>> pr/1
 \RequirePackage{newtxmath}%math font package 
 %Another package named {unicode-math} is more power than{newtxmath}. If you need different math font, please see the document of {unicode-math} and learn by yourself. 
 

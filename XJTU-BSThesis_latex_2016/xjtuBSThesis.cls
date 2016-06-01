@@ -1,6 +1,5 @@
 % !TEX program = xelatex
 % !Mode:: "TeX:UTF-8"
-%
 %%
 %% Copyright (C) 2016, Lingxiao Zhao. 赵令霄
 %% Department of Electrical Engineering, Xi'an Jiaotong University.

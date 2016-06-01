@@ -493,27 +493,10 @@
 \oldbibliography{#1}
 }
 
-\makeatletter
-\renewenvironment{thebibliography}[1]{%
-  \@xp\section\@xp*\@xp{\refname}%
-  \normalfont\footnotesize\labelsep .5em\relax
-  \renewcommand\theenumiv{\arabic{enumiv}}\let\p@enumiv\@empty
-  \vspace*{-5pt}% NEW
-  \list{\@biblabel{\theenumiv}}{\settowidth\labelwidth{\@biblabel{#1}}%
-    \leftmargin\labelwidth \advance\leftmargin\labelsep
-    \usecounter{enumiv}}%
-  \sloppy \clubpenalty\@M \widowpenalty\clubpenalty
-  \sfcode`\.=\@m
-}{%
-  \def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
-  \endlist
-}
-\makeatother
-
 \bibliographystyle{xjtuBib}
 \setcitestyle{square}
 \def\bibfont{\five} % 设置参考文献字体大小
-\setlength{\bibsep}{0.5ex}  % vertical spacing between references
+\setlength{\bibsep}{0pt plus 0.2ex}  % vertical spacing between references
 %%%%%%%%%%%%%%%%%%%%%%%设置支持带页码的引用%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 

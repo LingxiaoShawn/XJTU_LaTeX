@@ -305,7 +305,7 @@
 \titleformat{\subsubsection}
 	[hang]
 	{\four} % 三级标题四号
-	{\hspace{2ex}\thesubsubsection}
+	{\hspace{4ex}\thesubsubsection}
 	{1em}{}[]
 \titlespacing{\section}
 	{0pt}

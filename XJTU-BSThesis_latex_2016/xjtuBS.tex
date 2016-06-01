@@ -1,7 +1,16 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Author: Lingxiao Zhao  5.27.2016   562998710@qq.com
+%%
+%%
+%%
+%% Copyright (C) 2016, Lingxiao Zhao. 赵令霄
+%% Department of Electrical Engineering, Xi'an Jiaotong University.
+%% Email: lingxia1@andrew.cmu.edu
+%%
+%%
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Reference: 
 % 1.  NJU Latex Model from Chuheng Zhang
 %% 作者：张楚珩，zhangchuheng123 (at) live (dot) com
@@ -18,33 +27,65 @@
 % 使用说明：
 % 首先在下面［Mac］处自行改系统
 % 第二个section给出了常用功能用法示范
+%====================================%
+% 中文文献在生成Bibtex的时候加入：language ={zh}，如：
+% @article{陈润泽2014含储热光热电站的电网调度模型与并网效益分析,
+%   title={含储热光热电站的电网调度模型与并网效益分析},
+%   author={陈润泽 and 孙宏斌 and 李正烁 and 刘一兵},
+%   journal={电力系统自动化},
+%   volume={19},
+%   pages={001},
+%   year={2014},
+%   language ={zh}    % 加入这一行
+% }
+%====================================%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[Mac]{xjtuBSThesis}  % 输入Mac or Linux or Win 
 
+
+ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%用户使用处%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{Brief Article}
-\author{The Author}
+% 以下三项是必须的。
+\author{}{} % 作者{中文}{英文}
+\title{}{}  % 题目{中文}{英文}
+\advisor{XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}{XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}  % 导师{中文}{英文}
 %\date{}                                           % Activate to display a given date or no date
 
 \begin{document}
-\maketitle
+
 
 \frontmatter
 
-\begin{abstract}
-\sectionmark{摘要}
+\begin{abstractcn} % 中文摘要
+
+摘要是论文的高度概括，是全文的缩影，是长篇论文不可缺少的组成部分。要求用中、英文分别书写，一篇摘要不少于400字。
+居中编排“摘要”二字（三号宋体），二字间距为两个字符。“摘要”二字下为摘要正文，每段开头空两字符，小四号。
+
+……
 
 
-\end{abstract}
-\keywordscn{}
+\end{abstractcn}
 
-\begin{abstracten}
-ffsffsdfdsf
+\keywordscn{} % 中文关键词
 
-asfafasfsafas
+\begin{abstracten} % 英文摘要
+
+英文摘要的内容、格式和字号必须与中文摘要的一致。
+居中编排“ABSTRACT”（三号Times New Roman），英文摘要内容用小四号Times New Roman。
+摘要正文每段开头不空格，每段之间空一行。
+
+The key parts in drip irrigation facilities are emitters. The structural design parameters of emitters can directly affect its performance and the function of the whole drip irrigation system ……
+
+1. Because……
+
+2. Only ……
+
+3. To support ……
+
+
 \end{abstracten}
-\keywordsen{}
-\clearpage
+
+\keywordsen{} % 英文关键词
 \tableofcontents % 生成目录
 
 %================================================
@@ -72,7 +113,7 @@ asfafasfsafas
 字距和行距：如无特殊说明，全文一律采用无网格、1.5倍或1.2倍行距，段前段后不空行。
 页码：论文页码的第一页从正文开始用阿拉伯数字标注，直至全文结束。正文前的内容（除封面）用罗马数字单独标注页码。页码位于页面底端，对齐方式为 “外侧”，页码格式为最简单的数字，不带任何其它的符号或信息。页码不能出现缺页和重复页。附录（含外文复印件及外文译文、有关图纸、计算机源程序等）必须与正文装订在一起，页码要接着正文的页码连续编写。
 
-\clearpage
+
 \section{示例}
 表格的示例。
 
@@ -80,12 +121,12 @@ asfafasfsafas
   \centering
   \topcaption{测试表格}
   \begin{tabular}{cccc}
-    \toprule
+    \toprule[1.5pt]
     \textbf{文档域类型} & \textbf{Java类型} & \textbf{宽度(字节)} & \textbf{说明} \\
-    \midrule
+    \midrule[1pt]
     $BIG\_INTEGER$& java.math.BigInteger & 和具体值有关 & 任意精度的长整数 \\
     $BIG\_DECIMAL$ & java.math.BigDecimal & 和具体值有关 & 任意精度的十进制实数 \\
-    \bottomrule
+    \bottomrule[1.5pt]
   \end{tabular}
   
 \end{table}
@@ -161,7 +202,6 @@ asfafasfsafas
 定义：EPR和Bell不等式。与此类似的还有notation、theorem、lemma、corollary、proposition、fact、assumption、conjecture、hypothesis、axiom、postulate、principle、problem、exercise、example、remark等。
 \end{theorem}
 
-\clearpage
 \section{结论与展望}
 封面：采用西安交通大学毕业设计（论文）统一封面。
 

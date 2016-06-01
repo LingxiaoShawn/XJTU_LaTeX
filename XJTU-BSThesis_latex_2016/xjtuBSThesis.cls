@@ -1,9 +1,12 @@
 % !TEX program = xelatex
 % !Mode:: "TeX:UTF-8"
 %
-%% Copyright (C) 2016, Lingxiao Zhao.
+%%
+%% Copyright (C) 2016, Lingxiao Zhao. 赵令霄
 %% Department of Electrical Engineering, Xi'an Jiaotong University.
 %% Email: lingxia1@andrew.cmu.edu
+%%
+%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Reference: 
 % 1.  NJU Latex Model from Chuheng Zhang
@@ -19,7 +22,7 @@
 %  hy_haoyun <haoyun_tex@163.com>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{xjtuBSThesis}[2016/5/30 xjtuBSThesis Ver 1.0]
+\ProvidesClass{xjtuBSThesis}[2016/5/30 xjtuBSThesis Ver 1.1]
 
 \newif\ifXJTU@Mac \XJTU@Macfalse
 \newif\ifXJTU@Linux \XJTU@Linuxfalse
@@ -31,7 +34,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
-\LoadClass[12pt,a4paper,doubleside]{article}
+\LoadClass[12pt,a4paper,twoside]{article}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Load Package%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{geometry}      % See geometry.pdf to learn the layout options. There are lots.
 \geometry{hmargin = 2.6 true cm, %
@@ -47,7 +50,7 @@
 %\geometry{landscape}                % Activate for for rotated page geometry
 %\RequirePackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 
-
+%\RequirePackage{fancyhdr}
 \RequirePackage{graphicx}
 \RequirePackage{amssymb}
 % Will Robertson's fontspec.sty can be used to simplify font choices.
@@ -62,6 +65,8 @@
 \RequirePackage{caption} %定制浮动环境及标题
 \RequirePackage{amsmath} 
 \RequireXeTeX
+\RequirePackage{setspace}
+\onehalfspacing
 \RequirePackage{thmtools}
 \RequirePackage[fleqn]{mathtools} % advanced than amsmath
 \RequirePackage{amssymb}
@@ -82,6 +87,57 @@
 \floatname{algorithm}{算法}
 \numberwithin{algorithm}{section}
 %================================%
+\RequirePackage{hyperref}
+\hypersetup{%
+    unicode=false,
+    hyperfootnotes=true,
+    hyperindex=true,
+    pageanchor=true,
+    CJKbookmarks=true,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    bookmarksopenlevel=0,
+    breaklinks=true,
+    colorlinks=false,
+    plainpages=false,
+    pdfpagelabels,
+    pdfborder=0 0 0%
+}
+\RequirePackage{pdfpages} % insert pdf pages. 
+
+
+%====== Command ======%
+\makeatletter
+\def\college#1{\gdef\XJTU@college{#1}} % 学院
+\def\XJTU@college{\@latex@warning@no@line{No \noexpand\college given}}
+\def\department#1{\gdef\XJTU@department{#1}} % 系（专业）
+\def\XJTU@department{\@latex@warning@no@line{No \noexpand\department given}}
+\def\class#1{\gdef\XJTU@class{#1}} % 班级
+\def\XJTU@class{\@latex@warning@no@line{No \noexpand\class given}}
+\def\place#1{\gdef\XJTU@place{#1}} % 地点
+\def\XJTU@place{\@latex@warning@no@line{No \noexpand\place given}}
+
+% Reference: http://tex.stackexchange.com/questions/41996/how-do-i-split-a-dat
+\def\XJTU@begindate#1/#2/#3.{\gdef\XJTU@byear{#1}\gdef\XJTU@bmonth{#2}\gdef\XJTU@bday{#3}}
+\def\bdate#1{{\edef\XJTU@tempbdate{#1}\expandafter\XJTU@begindate\XJTU@tempbdate.}}
+\def\XJTU@enddate#1/#2/#3.{\gdef\XJTU@eyear{#1}\gdef\XJTU@emonth{#2}\gdef\XJTU@eday{#3}}
+\def\edate#1{{\edef\XJTU@tempedate{#1}\expandafter\XJTU@enddate\XJTU@tempedate.}}
+\def\XJTU@byear{\@latex@warning@no@line{No \noexpand\bdate given}}
+\def\XJTU@bmonth{\@latex@warning@no@line{No \noexpand\bdate given}}
+\def\XJTU@bday{\@latex@warning@no@line{No \noexpand\bdate given}}
+\def\XJTU@eyear{\@latex@warning@no@line{No \noexpand\edate given}}
+\def\XJTU@emonth{\@latex@warning@no@line{No \noexpand\edate given}}
+\def\XJTU@eday{\@latex@warning@no@line{No \noexpand\edate given}}
+
+\renewcommand\title[2]{\gdef\XJTU@title@cn{#1}\gdef\XJTU@title@en{#2}} % 题目
+\def\XJTU@title@cn{\@latex@warning@no@line{No \noexpand\title for cn given}}
+\def\XJTU@title@en{\@latex@warning@no@line{No \noexpand\title for en given}}
+\renewcommand\author[2]{\gdef\XJTU@author@cn{#1}\gdef\XJTU@author@en{#2}} % 作者
+\def\XJTU@author@cn{\@latex@warning@no@line{No \noexpand\author for cn given}}
+\def\XJTU@author@en{\@latex@warning@no@line{No \noexpand\author for en given}}
+\def\advisor#1#2{\gdef\XJTU@advisor@cn{#1}\gdef\XJTU@advisor@en{#2}} % 导师
+\def\XJTU@advisor@cn{\@latex@warning@no@line{No \noexpand\advisor for cn given}}
+\def\XJTU@advisor@en{\@latex@warning@no@line{No \noexpand\advisor for en given}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Set part of Configure %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\dashnumber}[2]%  定义 \dashnumber，将两个参数用-连接
@@ -92,7 +148,7 @@
 \graphicspath{{./}{./img/}{./fig/}{./image/}{./figure/}{./picture/}{./imgs/}{./figs/}{./images/}{./figures/}{./pictures/}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Font Configure%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\makeatletter
+
 \newcommand*{\xjtu@ChineseFont@songti@win}{SimSun}
 \newcommand*{\xjtu@ChineseFont@heiti@win}{SimHei}
 \newcommand*{\xjtu@ChineseFont@kaishu@win}{KaiTi}
@@ -235,28 +291,30 @@
 
 \makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%设置各级标题格式%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\sectionbreak}{\clearpage \null} % \null is very important
+
 \titleformat{\section} 
 	[hang]
-	{\centering\three\bfseries} % 一级标题三号
+	{\centering\three} % 一级标题三号
 	{\thesection}
 	{1em}{}[] 
 \titleformat{\subsection}
 	[hang]
-	{\sthree\bfseries} % 二级标题小三号
+	{\sthree} % 二级标题小三号
 	{\thesubsection}
 	{1em}{}[] 
 \titleformat{\subsubsection}
 	[hang]
-	{\four\bfseries} % 三级标题四号
+	{\four} % 三级标题四号
 	{\hspace{2ex}\thesubsubsection}
 	{1em}{}[]
 \titlespacing{\section}
 	{0pt}
-	{2.2ex plus 1ex minus .2ex}
+	{1.5\baselineskip plus 1ex minus .2ex}%近似段前空三行
 	{2\baselineskip plus .2ex}
 \titlespacing{\subsection}
 	{0pt}
-	{9.4mm plus 1ex minus .2ex}%1\baselineskip plus 1ex minus .2ex}
+	{1\baselineskip plus 1ex minus .2ex}%1\baselineskip plus 1ex minus .2ex}
 	{.5\baselineskip plus .2ex}
 \titlespacing{\subsubsection}
 	{0pt}
@@ -284,15 +342,15 @@
 		\makebox[0pt][l]{\rule[-0.28\baselineskip]{\linewidth}{0.5pt}}%
 		\rule[-0.34\baselineskip]{\linewidth}{0.5pt}}
 } 
-\def\frontmatter{%
+\newcommand\frontmatter{%
 	\clearpage
 	\pagestyle{main}
 	\pagenumbering{Roman}}
-\def\mainmatter{%
+\newcommand\mainmatter{%
 	\clearpage
 	\pagestyle{document}
 	\pagenumbering{arabic}}
-\def\backmatter{%
+\newcommand\backmatter{%
 	\clearpage
 	\pagestyle{main}}	
 
@@ -312,28 +370,58 @@
 \numberwithin{equation}{section}
 \renewcommand{\thefigure}{\arabic{section}-\arabic{figure}}%更改图名格式
 \renewcommand{\thetable}{\arabic{section}-\arabic{table}}%更改表名格式
-\renewcommand*{\theequation}{\arabic{section}--{\arabic{equation}}} %更改公式编号样式
+\renewcommand*{\theequation}{\arabic{section}-{\arabic{equation}}} %更改公式编号样式
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%定义中英文摘要页%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%====== Abstract ======%
-\renewcommand{\abstractname}{\sanhao 摘\hspace{2ex} 要} %%本命令用于重新定义摘要标题为中文"摘要"
 %=== Chinese === %
-\newcommand{\keywordscn}[1]{\vspace{\baselineskip}\par\noindent {\small {\bfseries 关键词：}#1}}
-%=== English ===%
+\makeatletter
+\newcommand\XJTU@abstract@cn{\three 摘\hspace{2ex}要}
+\newenvironment{abstractcn}{\clearpage
+\sectionmark{ 摘要}
 
+
+{\bfseries
+	\noindent 论文题目：\XJTU@title@cn \par
+	\noindent 学生姓名：\XJTU@author@cn \par
+	\noindent 指导教师：\XJTU@advisor@cn \par
+}
+\begin{center}
+	{\vspace*{3\baselineskip plus 1ex minus .2ex}\XJTU@abstract@cn\vspace*{1\baselineskip plus 1ex minus .2ex}}
+\end{center}
+}{\par}
+
+\newcommand{\keywordscn}[1]{\vspace{\baselineskip}\par\noindent {\five {\bfseries 关键词：}#1}}
+
+%=== English ===%
+\newcommand{\XJTU@abstract@en}{\three ABSTRACT}
 \newenvironment{abstracten}{\clearpage
 \sectionmark{ ABSTRACT}
-\setlength\parskip{1ex}	% 设置段行距
+{\bfseries
+	\noindent Title：\XJTU@title@en \par
+	\noindent Name：\XJTU@author@en \par
+	\noindent Supervisor：\XJTU@advisor@en \par
+}	\begin{center}
+		{\vspace*{3\baselineskip plus 1ex minus .2ex}\XJTU@abstract@en\vspace*{0.5\baselineskip plus 1ex minus .2ex}}
+	\end {center} \par
+\setlength\parskip{1em}	% 设置段行距
 \setlength\parindent{0em}	% 设置段首缩进
-	\begin{center}
-		{\sanhao ABSTRACT \vspace{-.5em}\vspace{\z@}}
-	\end{center} \par
+
 }{%
 \setlength\parskip{0ex}	% 恢复行距
 \setlength\parindent{2ex} % 恢复段首缩进
-\par}%
-\newcommand{\keywordsen}[1]{\vspace{\baselineskip}\par\noindent {\small {\bfseries KEY WORDS ：}#1}}
+\par}
+
+\newcommand{\keywordsen}[1]{\vspace{\baselineskip}\par\noindent {\five {\bfseries KEY WORDS ：}#1}}
+
+\makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\let\oldtableofcontents\tableofcontents
+\renewcommand{\tableofcontents}{
+	\clearpage
+	\sectionmark{目录}
+	\oldtableofcontents
+}
+
 \renewcommand{\contentsname}{目\hspace{2ex}录} % 修改目录名字
 \renewcommand*{\figurename}{图} % 修改图的名字为中文
 \renewcommand*{\tablename}{表} % 修改表的名字为中文
@@ -395,19 +483,41 @@
 %	\bibliography{#1}
 %	}
 
+
 \let\oldbibliography\bibliography
 \renewcommand{\bibliography}[1]{
 \clearpage
 \refstepcounter{section}%
 \sectionmark{参考文献}
 \addcontentsline{toc}{section}{参考文献}
+
 \oldbibliography{#1}
 }
-\bibliographystyle{gbt7714-2005}
+
+\makeatletter
+\renewenvironment{thebibliography}[1]{%
+  \@xp\section\@xp*\@xp{\refname}%
+  \normalfont\footnotesize\labelsep .5em\relax
+  \renewcommand\theenumiv{\arabic{enumiv}}\let\p@enumiv\@empty
+  \vspace*{-5pt}% NEW
+  \list{\@biblabel{\theenumiv}}{\settowidth\labelwidth{\@biblabel{#1}}%
+    \leftmargin\labelwidth \advance\leftmargin\labelsep
+    \usecounter{enumiv}}%
+  \sloppy \clubpenalty\@M \widowpenalty\clubpenalty
+  \sfcode`\.=\@m
+}{%
+  \def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
+  \endlist
+}
+\makeatother
+
+\bibliographystyle{xjtuBib}
 \setcitestyle{square}
 \def\bibfont{\five} % 设置参考文献字体大小
-
+\setlength{\bibsep}{0.5ex}  % vertical spacing between references
 %%%%%%%%%%%%%%%%%%%%%%%设置支持带页码的引用%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+
 \renewcommand\NAT@citesuper[3]{%
 \ifNAT@swa%
   \if*#2*\else#2\NAT@spacechar\fi%
@@ -434,8 +544,6 @@
 \renewcommand\thefootnote{\ding{\numexpr171+\value{footnote}}}
 \MakePerPage{footnote} % Package `perpage` is needed.
 
-
-
 %====== Acknowledgment ======%
 \newcommand{\XJTU@acknowledgment}{致\hspace{2ex}谢}
 \newenvironment{acknowledgment}{
@@ -444,8 +552,9 @@
 		\sectionmark{致谢}
 \addcontentsline{toc}{section}{致谢} % 使用\addcontentsline{toc}{chapter}{致谢}将致谢添加到目录中.
 }{\par}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%定义数学公式想对大小%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%定义数学公式想对大小%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{newtxmath}%math font package 
 %Another package named {unicode-math} is more power than{newtxmath}. If you need different math font, please see the document of {unicode-math} and learn by yourself. 
 
@@ -515,14 +624,24 @@
                  {\xjtu@FontSize@one}
                  {\xjtu@FontSize@two}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%调整目录样式%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \titlecontents{section}[0mm]
-% {\bfseries\vspace{.2\baselineskip}}
-% {\bfseries\normalsize{\thecontentslabel}~\hspace{.5em}}
-% {}
-% {\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
-% [\vspace{.6\baselineskip}]
-
-
+\titlecontents{section}[0mm]
+{\vspace{.1\baselineskip}}
+ {\normalsize{\thecontentslabel}~\hspace{.5em}}
+ {}
+ {\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+ [\vspace{.1\baselineskip}]
+\titlecontents{subsection}[2ex]
+{\vspace{.1\baselineskip}}
+ {\normalsize{\thecontentslabel}~\hspace{.5em}}
+ {}
+ {\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+ [\vspace{.1\baselineskip}]
+\titlecontents{subsubsection}[4ex]
+{\vspace{.1\baselineskip}}
+ {\normalsize{\thecontentslabel}~\hspace{.5em}}
+ {}
+ {\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+ [\vspace{.1\baselineskip}]
 \def\@dotsep{2}%就在这儿改，把2改成其他什么，默认是4.5，就是点之间距离为4.5mu
 \makeatother
 
@@ -595,4 +714,63 @@
 \newtheorem{example}{\xjtu@cap@example}[section]
 \newtheorem{remark}{\xjtu@cap@remark}[section]
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%改变目录样式2(为Section加入dot)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\@dottedtocline#1#2#3#4#5{%
+  \ifnum #1>\c@tocdepth \else
+    \vskip \z@ \@plus.2\p@
+    {\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
+     \parindent #2\relax\@afterindenttrue
+     \interlinepenalty\@M
+     \leavevmode
+     \@tempdima #3\relax
+     \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+     {#4}\nobreak
+     \leaders\hbox{$\m@th\mkern 1.5mu\cdot\mkern 1.5mu$}\hfill
+     \nobreak
+     \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5}%
+     \par}%
+  \fi}
+
+%\newcommand*\l@section{\@dottedtocline{1}{1.5em}{2.3em}}
+%\newcommand*\l@subsection{\@dottedtocline{2}{3.8em}{3.2em}}
+%\newcommand*\l@subsubsection{\@dottedtocline{3}{7.0em}{4.1em}}
+%\newcommand*\l@paragraph{\@dottedtocline{4}{10em}{5em}}
+%\newcommand*\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
+
+\newif\ifXJTU@SectionDotInContent \XJTU@SectionDotInContentfalse
+
+%\XJTU@SectionDotInContenttrue      %% Put the dot of Section in content !! 
+\ifXJTU@SectionDotInContent
+\renewcommand*\l@section[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 1.0em \@plus\p@
+    \setlength\@tempdima{2em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak
+      \xleaders\hbox{$\m@th\mkern 1.5mu\cdot\mkern 1.5mu$}\hfill%original : {$\m@th\mkern \@dotsep mu\hbox{.}\mkern \@dotsepmu$}
+      \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+\fi
 \makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+

@@ -12,6 +12,6 @@
 printf "Chinese characters count (with punctuation):\n\n"
 for path in *.tex
 do
-  only_char=`cat $path | tr -d "[:print:][:cntrl:]" | wc -m`
+  only_char=`sed 's/%.*$//' $path | tr -d "[:print:][:cntrl:]" | wc -m`
   printf "%-15s >> %d\n" $path $only_char
 done

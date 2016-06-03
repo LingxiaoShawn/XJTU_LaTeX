@@ -5,7 +5,7 @@
 # Homepage  : id9502.github.io                                                      #
 # Date      : 2016-06-03                                                            #
 #                                                                                   #
-# Usage     : copy this script into the folder which contains your *.tex file       #
+# Usage     :                                                                       #
 #                                                                                   #
 #             to make it executable, use command: chmod +x <this/name>.sh           #
 #                                                                                   #

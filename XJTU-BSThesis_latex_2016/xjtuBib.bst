@@ -1509,7 +1509,7 @@ FUNCTION {phdthesis} {                            % void Entry::phdthesis() {
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   %
-FUNCTION {masterthesis} {                         % void Entry::masterthesis() {
+FUNCTION {mastersthesis} {                         % void Entry::mastersthesis() {
   "D" set.mark                                    %   set_mark("D");
   thesis.impl                                     %   thesis_impl();
 }                                                 % }

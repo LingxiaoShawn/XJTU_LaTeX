@@ -24,8 +24,6 @@ printf "Chinese characters count (with punctuation):\n\n"
 
 for path in $(ls ../XJTU-BSThesis_latex_2016/*.tex)
 do
-  #only_char=`sed 's/%.*$//' $path | tr -d "[:cntrl:]" | wc -m`
-  #only_char=`sed 's/%.*$//' $path | tr -d "[:alnum:][:punct:][:space:][:cntrl:]" | wc -m`
   only_char=`sed 's/%.*$//' $path | tr -d "\40-\177[:cntrl:]" | wc -m`
   printf "%-15s >> %d\n" $path $only_char
 done

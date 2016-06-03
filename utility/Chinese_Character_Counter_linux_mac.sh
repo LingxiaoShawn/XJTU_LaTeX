@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /bin/bash
 
 #########################################################
 # Author    : J.Mx                                      #
@@ -7,6 +7,9 @@
 #                                                       #
 # Usage     : run this script inside the folder which   #
 #             contains your *.tex file                  #
+#                                                       #
+#             to make it executable, use command:       #
+#             chmod +x <this/name>.sh                   #
 #########################################################
 
 printf "Chinese characters count (with punctuation):\n\n"

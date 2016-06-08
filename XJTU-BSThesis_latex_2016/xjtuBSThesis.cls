@@ -62,12 +62,12 @@
 %\RequirePackage{first} 
 \RequirePackage{titletoc} %改变目录样式
 \RequirePackage{caption} %定制浮动环境及标题
-\RequirePackage{amsmath} 
+\RequirePackage[fleqn]{amsmath} 
 \RequireXeTeX
 \RequirePackage{setspace}
 \onehalfspacing
 \RequirePackage{thmtools}
-\RequirePackage[fleqn]{mathtools} % advanced than amsmath
+%\RequirePackage[fleqn]{mathtools} % advanced than amsmath
 \RequirePackage{amssymb}
 \RequirePackage{amsthm} %用于设置定理环境的格式，http://blog.csdn.net/lishoubox/article/details/7270604
 \RequirePackage{ifxetex, ifpdf}
@@ -85,6 +85,14 @@
 \RequirePackage{algpseudocode}
 \floatname{algorithm}{算法}
 \numberwithin{algorithm}{section}
+\usepackage{etoolbox}
+%===============公式显示调整================%
+\apptocmd\normalsize{%
+ \abovedisplayskip=2pt 
+ \abovedisplayshortskip=0pt 
+ \belowdisplayskip=2pt 
+ \belowdisplayshortskip=0pt 
+}{}{}
 %================================%
 \RequirePackage{hyperref}
 \hypersetup{%
@@ -608,36 +616,36 @@
                  {\xjtu@FontSize@two}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%调整目录样式%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \titlecontents{section}[0mm]
-{\vspace{.1\baselineskip}}
+{\vspace{0pt}}
  {\normalsize{\thecontentslabel}~\hspace{.5em}}
  {}
  {\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
- [\vspace{.1\baselineskip}]
+ [\vspace{0pt}]
 \titlecontents{subsection}[2ex]
-{\vspace{.1\baselineskip}}
+{\vspace{0pt}}
  {\normalsize{\thecontentslabel}~\hspace{.5em}}
  {}
  {\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
- [\vspace{.1\baselineskip}]
+ [\vspace{0pt}]
 \titlecontents{subsubsection}[4ex]
-{\vspace{.1\baselineskip}}
+{\vspace{0pt}}
  {\normalsize{\thecontentslabel}~\hspace{.5em}}
  {}
  {\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
- [\vspace{.1\baselineskip}]
+ [\vspace{0pt}]
 \def\@dotsep{2}%就在这儿改，把2改成其他什么，默认是4.5，就是点之间距离为4.5mu
 \makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%新建功能处，用户需注意%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}%设置上标形式引用
 \newcommand{\topcaption}[1]{%    用于在表题（题目在下），替换原有\caption
-\setlength{\abovecaptionskip}{0pt}%
-\setlength{\belowcaptionskip}{5pt}%
+\setlength{\abovecaptionskip}{0.5\baselineskip}%
+\setlength{\belowcaptionskip}{0.5\baselineskip}%
 \caption{#1}}
 
 \newcommand{\downcaption}[1]{%      用于图题（题目在上），替换原有\caption
-\setlength{\abovecaptionskip}{0pt}%
-\setlength{\belowcaptionskip}{-5pt}%
+\setlength{\abovecaptionskip}{0.5\baselineskip}%
+\setlength{\belowcaptionskip}{-0.5\baselineskip}%
 \caption{#1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%配置常用的 定义、定理、证明等环境%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\renewcommand{\proofname}{\normalfont\bfseries 证明}

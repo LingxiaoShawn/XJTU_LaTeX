@@ -25,10 +25,10 @@
 %  hy_haoyun <haoyun_tex@163.com>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 使用说明：
-% 首先在下面［Mac］处自行改系统
-% 第二个section给出了常用功能用法示范
+% 1.首先在下面［Mac］处自行改系统
+% 2.第二个section给出了常用功能用法示范
 %====================================%
-% 中文文献在生成Bibtex的时候加入：language ={zh}，如：
+% 3.中文文献在生成Bibtex的时候加入：language ={zh}，如：
 % @article{陈润泽2014含储热光热电站的电网调度模型与并网效益分析,
 %   title={含储热光热电站的电网调度模型与并网效益分析},
 %   author={陈润泽 and 孙宏斌 and 李正烁 and 刘一兵},
@@ -39,6 +39,8 @@
 %   language ={zh}    % 加入这一行
 % }
 %====================================%
+% 4.当很多公式连续在一起时，采用\begin{gather}环境替换\begin{equation}，具体用法google
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[Mac]{xjtuBSThesis}  % 输入Mac or Linux or Win 
  
@@ -115,7 +117,7 @@ The key parts in drip irrigation facilities are emitters. The structural design 
 \section{示例}
 表格的示例。
 
-\begin{table}[htbp]
+\begin{table}[htbp]\small
   \centering
   \topcaption{测试表格}
   \begin{tabular}{cccc}

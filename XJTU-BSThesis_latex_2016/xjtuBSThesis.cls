@@ -87,12 +87,14 @@
 \numberwithin{algorithm}{section}
 \usepackage{etoolbox}
 %===============公式显示调整================%
+\setlength{\mathindent}{2em}
 \apptocmd\normalsize{%
- \abovedisplayskip=2pt 
+ \abovedisplayskip=5pt 
  \abovedisplayshortskip=0pt 
- \belowdisplayskip=2pt 
+ \belowdisplayskip=5pt 
  \belowdisplayshortskip=0pt 
 }{}{}
+
 %================================%
 \RequirePackage{hyperref}
 \hypersetup{%

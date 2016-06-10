@@ -476,6 +476,8 @@
 \sectionmark{ 附录\arabic{appends}  \hspace{0.15cm}#1}
 \section*{附录\arabic{appends}  \hspace{0.15cm}#1}
 \addcontentsline{toc}{section}{附录\arabic{appends} \hspace{0.15cm}#1}
+%	Set counter of section in appendix the same as appends
+\setcounter{section}{\arabic{appends}}
 } 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%引用设置%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %====== Bibliography ======%

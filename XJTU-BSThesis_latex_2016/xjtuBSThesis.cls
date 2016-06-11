@@ -89,10 +89,10 @@
 %===============公式显示调整================%
 \setlength{\mathindent}{2em}
 \apptocmd\normalsize{%
- \abovedisplayskip=5pt 
- \abovedisplayshortskip=0pt 
- \belowdisplayskip=5pt 
- \belowdisplayshortskip=0pt 
+ \abovedisplayskip=6pt 
+ \abovedisplayshortskip=4pt 
+ \belowdisplayskip=6pt 
+ \belowdisplayshortskip=4pt 
 }{}{}
 
 %================================%

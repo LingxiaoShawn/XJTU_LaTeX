@@ -38,8 +38,7 @@
 \RequirePackage{geometry}      % See geometry.pdf to learn the layout options. There are lots.
 \geometry{hmargin = 2.6 true cm, %
 	top = 3.0 true cm, %
-	bottom = 2.5 true cm, %
-	a4paper}                  
+	bottom = 2.5 true cm}                  
 % ... or a4paper or a5paper or ... 
 %	it's required that
 %		纸型为A4（21.0 cm×29.7cm）标准，双面打印。
@@ -67,6 +66,7 @@
 \RequirePackage{setspace}
 \onehalfspacing
 \RequirePackage{thmtools}
+\RequirePackage{tabularx} % 可以设置表格宽度
 %\RequirePackage[fleqn]{mathtools} % advanced than amsmath
 \RequirePackage{amssymb}
 \RequirePackage{amsthm} %用于设置定理环境的格式，http://blog.csdn.net/lishoubox/article/details/7270604
@@ -113,7 +113,7 @@
     pdfborder=0 0 0%
 }
 \RequirePackage{pdfpages} % insert pdf pages. 
-
+\RequirePackage{calc}%  footskip calculation
 
 %====== Command ======%
 \makeatletter
@@ -319,7 +319,7 @@
 	{1em}{}[]
 \titlespacing{\section}
 	{0pt}
-	{1.5\baselineskip plus 1ex minus .2ex}%近似段前空三行
+	{1.4\baselineskip plus 1ex minus .2ex}%近似段前空三行
 	{2\baselineskip plus .2ex}
 \titlespacing{\subsection}
 	{0pt}
@@ -334,8 +334,8 @@
 \setlength{\headheight}{0.7cm}%调整页眉字中道页顶距离
 \sethead[][\five 西安交通大学本科毕业设计（论文）][]	% even
 		{}{\five \sectiontitle}{}	% odd
-\setfoot[\thepage][][]	% even
-		{}{}{\thepage}	% odd
+\setfoot[\five\thepage][][]	% even
+		{}{}{\five\thepage}	% odd
 \renewcommand{\makeheadrule}{%
 	\makebox[0pt][l]{\rule[-0.28\baselineskip]{\linewidth}{0.5pt}}%
 	\rule[-0.34\baselineskip]{\linewidth}{0.5pt}}
@@ -345,8 +345,8 @@
 \setlength{\headheight}{0.7cm}%调整页眉字中道页顶距离
 \sethead[][\five 西安交通大学本科毕业设计（论文）][]	% even
 		{}{\five \thesection \quad \sectiontitle}{}	% odd
-\setfoot[\thepage][][] % even
-		{}{}{\thepage}	% odd
+\setfoot[\five\thepage][][] % even
+		{}{}{\five\thepage}	% odd
 \renewcommand{\makeheadrule}{%
 		\makebox[0pt][l]{\rule[-0.28\baselineskip]{\linewidth}{0.5pt}}%
 		\rule[-0.34\baselineskip]{\linewidth}{0.5pt}}
@@ -363,6 +363,10 @@
 	\clearpage
 	\pagestyle{main}}	
 
+% set footskip
+\setlength{\footskip}{\paperheight
+  -(1in+\voffset+\topmargin+\headheight+\headsep+\textheight)
+  -0.75in}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%图名、表名、公式编号等设置%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %====== captions ======%
 
@@ -387,7 +391,7 @@
 \newcommand\XJTU@abstract@cn{\three 摘\hspace{2ex}要}
 \newenvironment{abstractcn}{\clearpage
 \sectionmark{ 摘要}
-
+\setcounter{page}{5}
 
 {\bfseries
 	\noindent 论文题目：\XJTU@title@cn \par
@@ -416,7 +420,7 @@
 \setlength\parindent{0em}	% 设置段首缩进
 
 }{%
-\setlength\parskip{0ex}	% 恢复行距
+\setlength\parskip{0.1em}	% 恢复行距
 \setlength\parindent{2ex} % 恢复段首缩进
 \par}
 
@@ -757,8 +761,8 @@
 \fi
 \makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\AtBeginDocument
+{\setlength\parskip{0.1em}}	
 
 
 

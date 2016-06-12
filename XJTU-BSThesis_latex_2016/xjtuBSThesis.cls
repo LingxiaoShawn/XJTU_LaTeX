@@ -300,7 +300,7 @@
 
 \makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%设置各级标题格式%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\sectionbreak}{\clearpage \null} % \null is very important
+\newcommand{\sectionbreak}{\cleardoublepage \null} % \null is very important
 
 \titleformat{\section} 
 	[hang]
@@ -352,15 +352,15 @@
 		\rule[-0.34\baselineskip]{\linewidth}{0.5pt}}
 } 
 \newcommand\frontmatter{%
-	\clearpage
+	\cleardoublepage
 	\pagestyle{main}
 	\pagenumbering{Roman}}
 \newcommand\mainmatter{%
-	\clearpage
+	\cleardoublepage
 	\pagestyle{document}
 	\pagenumbering{arabic}}
 \newcommand\backmatter{%
-	\clearpage
+	\cleardoublepage
 	\pagestyle{main}}	
 
 % set footskip
@@ -389,7 +389,7 @@
 %=== Chinese === %
 \makeatletter
 \newcommand\XJTU@abstract@cn{\three 摘\hspace{2ex}要}
-\newenvironment{abstractcn}{\clearpage
+\newenvironment{abstractcn}{\cleardoublepage
 \sectionmark{ 摘要}
 \setcounter{page}{5}
 
@@ -407,7 +407,7 @@
 
 %=== English ===%
 \newcommand{\XJTU@abstract@en}{\three ABSTRACT}
-\newenvironment{abstracten}{\clearpage
+\newenvironment{abstracten}{\cleardoublepage
 \sectionmark{ ABSTRACT}
 {\bfseries
 	\noindent Title：\XJTU@title@en \par
@@ -430,7 +430,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \let\oldtableofcontents\tableofcontents
 \renewcommand{\tableofcontents}{
-	\clearpage
+	\cleardoublepage
 	\sectionmark{目录}
 	\oldtableofcontents
 }
@@ -445,7 +445,7 @@
 %	我感觉这个东西没有必要。
 
 \newenvironment{denotation}{
-\clearpage
+\cleardoublepage
 \refstepcounter{section}
 \section*{主要符号表}
 \sectionmark{主要符号表}
@@ -474,7 +474,7 @@
 \setcounter{appends}{0} % 初始化为1
 %\setcounter{appendshead}{0} % 初始化为0
 \newcommand{\appendixs}[1]
-{\clearpage
+{\cleardoublepage
 \refstepcounter{appends}
 \stepcounter{section}
 \sectionmark{ 附录\arabic{appends}  \hspace{0.15cm}#1}
@@ -499,7 +499,7 @@
 
 \let\oldbibliography\bibliography
 \renewcommand{\bibliography}[1]{
-\clearpage
+\cleardoublepage
 \refstepcounter{section}%
 \sectionmark{参考文献}
 \addcontentsline{toc}{section}{参考文献}
@@ -543,7 +543,7 @@
 %====== Acknowledgment ======%
 \newcommand{\XJTU@acknowledgment}{致\hspace{2ex}谢}
 \newenvironment{acknowledgment}{
-\clearpage\refstepcounter{section}
+\cleardoublepage\refstepcounter{section}
        \section*{\XJTU@acknowledgment} 
 		\sectionmark{致谢}
 \addcontentsline{toc}{section}{致谢} % 使用\addcontentsline{toc}{chapter}{致谢}将致谢添加到目录中.
@@ -644,12 +644,12 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%新建功能处，用户需注意%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}%设置上标形式引用
-\newcommand{\topcaption}[1]{%    用于在表题（题目在下），替换原有\caption
+\newcommand{\topcaption}[1]{%    用于在表题（题目在上），替换原有\caption
 \setlength{\abovecaptionskip}{0.5\baselineskip}%
 \setlength{\belowcaptionskip}{0.5\baselineskip}%
 \caption{#1}}
 
-\newcommand{\downcaption}[1]{%      用于图题（题目在上），替换原有\caption
+\newcommand{\downcaption}[1]{%      用于图题（题目在下），替换原有\caption
 \setlength{\abovecaptionskip}{0.5\baselineskip}%
 \setlength{\belowcaptionskip}{-0.5\baselineskip}%
 \caption{#1}}

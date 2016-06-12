@@ -38,8 +38,7 @@
 \RequirePackage{geometry}      % See geometry.pdf to learn the layout options. There are lots.
 \geometry{hmargin = 2.6 true cm, %
 	top = 3.0 true cm, %
-	bottom = 2.5 true cm, %
-	a4paper}                  
+	bottom = 2.5 true cm}                  
 % ... or a4paper or a5paper or ... 
 %	it's required that
 %		纸型为A4（21.0 cm×29.7cm）标准，双面打印。
@@ -67,6 +66,7 @@
 \RequirePackage{setspace}
 \onehalfspacing
 \RequirePackage{thmtools}
+\RequirePackage{tabularx} % 可以设置表格宽度
 %\RequirePackage[fleqn]{mathtools} % advanced than amsmath
 \RequirePackage{amssymb}
 \RequirePackage{amsthm} %用于设置定理环境的格式，http://blog.csdn.net/lishoubox/article/details/7270604
@@ -89,10 +89,10 @@
 %===============公式显示调整================%
 \setlength{\mathindent}{2em}
 \apptocmd\normalsize{%
- \abovedisplayskip=5pt 
- \abovedisplayshortskip=0pt 
- \belowdisplayskip=5pt 
- \belowdisplayshortskip=0pt 
+ \abovedisplayskip=6pt 
+ \abovedisplayshortskip=4pt 
+ \belowdisplayskip=6pt 
+ \belowdisplayshortskip=4pt 
 }{}{}
 
 %================================%
@@ -113,7 +113,7 @@
     pdfborder=0 0 0%
 }
 \RequirePackage{pdfpages} % insert pdf pages. 
-
+\RequirePackage{calc}%  footskip calculation
 
 %====== Command ======%
 \makeatletter
@@ -300,7 +300,7 @@
 
 \makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%设置各级标题格式%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\sectionbreak}{\clearpage \null} % \null is very important
+\newcommand{\sectionbreak}{\cleardoublepage \null} % \null is very important
 
 \titleformat{\section} 
 	[hang]
@@ -319,7 +319,7 @@
 	{1em}{}[]
 \titlespacing{\section}
 	{0pt}
-	{1.5\baselineskip plus 1ex minus .2ex}%近似段前空三行
+	{1.4\baselineskip plus 1ex minus .2ex}%近似段前空三行
 	{2\baselineskip plus .2ex}
 \titlespacing{\subsection}
 	{0pt}
@@ -334,8 +334,8 @@
 \setlength{\headheight}{0.7cm}%调整页眉字中道页顶距离
 \sethead[][\five 西安交通大学本科毕业设计（论文）][]	% even
 		{}{\five \sectiontitle}{}	% odd
-\setfoot[\thepage][][]	% even
-		{}{}{\thepage}	% odd
+\setfoot[\five\thepage][][]	% even
+		{}{}{\five\thepage}	% odd
 \renewcommand{\makeheadrule}{%
 	\makebox[0pt][l]{\rule[-0.28\baselineskip]{\linewidth}{0.5pt}}%
 	\rule[-0.34\baselineskip]{\linewidth}{0.5pt}}
@@ -345,28 +345,32 @@
 \setlength{\headheight}{0.7cm}%调整页眉字中道页顶距离
 \sethead[][\five 西安交通大学本科毕业设计（论文）][]	% even
 		{}{\five \thesection \quad \sectiontitle}{}	% odd
-\setfoot[\thepage][][] % even
-		{}{}{\thepage}	% odd
+\setfoot[\five\thepage][][] % even
+		{}{}{\five\thepage}	% odd
 \renewcommand{\makeheadrule}{%
 		\makebox[0pt][l]{\rule[-0.28\baselineskip]{\linewidth}{0.5pt}}%
 		\rule[-0.34\baselineskip]{\linewidth}{0.5pt}}
 } 
 \newcommand\frontmatter{%
-	\clearpage
+	\cleardoublepage
 	\pagestyle{main}
 	\pagenumbering{Roman}}
 \newcommand\mainmatter{%
-	\clearpage
+	\cleardoublepage
 	\pagestyle{document}
 	\pagenumbering{arabic}}
 \newcommand\backmatter{%
-	\clearpage
+	\cleardoublepage
 	\pagestyle{main}}
 %	Style of appendixs is the same like sections
 \newcommand\appdmatter{%
-	\clearpage
+	\cleardoublepage
 	\pagestyle{document}}
 
+% set footskip
+\setlength{\footskip}{\paperheight
+  -(1in+\voffset+\topmargin+\headheight+\headsep+\textheight)
+  -0.75in}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%图名、表名、公式编号等设置%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %====== captions ======%
 
@@ -390,9 +394,9 @@
 %=== Chinese === %
 \makeatletter
 \newcommand\XJTU@abstract@cn{\three 摘\hspace{2ex}要}
-\newenvironment{abstractcn}{\clearpage
+\newenvironment{abstractcn}{\cleardoublepage
 \sectionmark{ 摘要}
-
+\setcounter{page}{5}
 
 {\bfseries
 	\noindent 论文题目：\XJTU@title@cn \par
@@ -408,7 +412,7 @@
 
 %=== English ===%
 \newcommand{\XJTU@abstract@en}{\three ABSTRACT}
-\newenvironment{abstracten}{\clearpage
+\newenvironment{abstracten}{\cleardoublepage
 \sectionmark{ ABSTRACT}
 {\bfseries
 	\noindent Title：\XJTU@title@en \par
@@ -421,7 +425,7 @@
 \setlength\parindent{0em}	% 设置段首缩进
 
 }{%
-\setlength\parskip{0ex}	% 恢复行距
+\setlength\parskip{0.1em}	% 恢复行距
 \setlength\parindent{2ex} % 恢复段首缩进
 \par}
 
@@ -431,7 +435,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \let\oldtableofcontents\tableofcontents
 \renewcommand{\tableofcontents}{
-	\clearpage
+	\cleardoublepage
 	\sectionmark{目录}
 	\oldtableofcontents
 }
@@ -446,7 +450,7 @@
 %	我感觉这个东西没有必要。
 
 \newenvironment{denotation}{
-\clearpage
+\cleardoublepage
 \refstepcounter{section}
 \section*{主要符号表}
 \sectionmark{主要符号表}
@@ -475,7 +479,7 @@
 \setcounter{appends}{0} % 初始化为1
 %\setcounter{appendshead}{0} % 初始化为0
 \newcommand{\appendixs}[1]
-{\clearpage
+{\cleardoublepage
 \refstepcounter{appends}
 %	Use `\thesection` to expand arabic of sections for appendixs
 \renewcommand\thesection{附录\arabic{appends}}
@@ -501,7 +505,7 @@
 
 \let\oldbibliography\bibliography
 \renewcommand{\bibliography}[1]{
-\clearpage
+\cleardoublepage
 \refstepcounter{section}%
 \sectionmark{参考文献}
 \addcontentsline{toc}{section}{参考文献}
@@ -545,7 +549,7 @@
 %====== Acknowledgment ======%
 \newcommand{\XJTU@acknowledgment}{致\hspace{2ex}谢}
 \newenvironment{acknowledgment}{
-\clearpage\refstepcounter{section}
+\cleardoublepage\refstepcounter{section}
        \section*{\XJTU@acknowledgment} 
 		\sectionmark{致谢}
 \addcontentsline{toc}{section}{致谢} % 使用\addcontentsline{toc}{chapter}{致谢}将致谢添加到目录中.
@@ -646,12 +650,12 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%新建功能处，用户需注意%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}%设置上标形式引用
-\newcommand{\topcaption}[1]{%    用于在表题（题目在下），替换原有\caption
+\newcommand{\topcaption}[1]{%    用于在表题（题目在上），替换原有\caption
 \setlength{\abovecaptionskip}{0.5\baselineskip}%
 \setlength{\belowcaptionskip}{0.5\baselineskip}%
 \caption{#1}}
 
-\newcommand{\downcaption}[1]{%      用于图题（题目在上），替换原有\caption
+\newcommand{\downcaption}[1]{%      用于图题（题目在下），替换原有\caption
 \setlength{\abovecaptionskip}{0.5\baselineskip}%
 \setlength{\belowcaptionskip}{-0.5\baselineskip}%
 \caption{#1}}
@@ -763,3 +767,5 @@
 \fi
 \makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AtBeginDocument
+{\setlength\parskip{0.1em}}	

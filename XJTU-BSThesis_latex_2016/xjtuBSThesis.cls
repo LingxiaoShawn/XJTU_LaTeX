@@ -361,7 +361,11 @@
 	\pagenumbering{arabic}}
 \newcommand\backmatter{%
 	\cleardoublepage
-	\pagestyle{main}}	
+	\pagestyle{main}}
+%	Style of appendixs is the same like sections
+\newcommand\appdmatter{%
+	\cleardoublepage
+	\pagestyle{document}}
 
 % set footskip
 \setlength{\footskip}{\paperheight
@@ -381,9 +385,10 @@
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
 \numberwithin{equation}{section}
-\renewcommand{\thefigure}{\arabic{section}-\arabic{figure}}%更改图名格式
-\renewcommand{\thetable}{\arabic{section}-\arabic{table}}%更改表名格式
-\renewcommand*{\theequation}{\arabic{section}-{\arabic{equation}}} %更改公式编号样式
+%	Use `\thesection` to expand arabic of sections for appendixs
+\renewcommand{\thefigure}{\thesection-\arabic{figure}}%更改图名格式
+\renewcommand{\thetable}{\thesection-\arabic{table}}%更改表名格式
+\renewcommand*{\theequation}{\thesection-{\arabic{equation}}} %更改公式编号样式
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%定义中英文摘要页%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %=== Chinese === %
@@ -476,10 +481,11 @@
 \newcommand{\appendixs}[1]
 {\cleardoublepage
 \refstepcounter{appends}
-\stepcounter{section}
-\sectionmark{ 附录\arabic{appends}  \hspace{0.15cm}#1}
-\section*{附录\arabic{appends}  \hspace{0.15cm}#1}
-\addcontentsline{toc}{section}{附录\arabic{appends} \hspace{0.15cm}#1}
+%	Use `\thesection` to expand arabic of sections for appendixs
+\renewcommand\thesection{附录\arabic{appends}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsection}}
+\section{#1}
 } 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%引用设置%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %====== Bibliography ======%
@@ -763,11 +769,3 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \AtBeginDocument
 {\setlength\parskip{0.1em}}	
-
-
-
-
-
-
-
-
